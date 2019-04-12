@@ -19,7 +19,7 @@ def index():
             return render_template('index.html', form=form, error='Username already in use.')
         if form.room.data == 'private' and form.name.data != 'admin':
             print('[!] Login error: permission denied for user "{0}" and room "{1}".'.format(form.name.data, form.room.data))
-            return render_template('index.html', form=form, error='Room only accessable to user: admin')
+            return render_template('index.html', form=form, error='Room only accessable to \'admin\' user.')
         print('[*] User "{0}" joined "{1}".'.format(form.name.data, form.room.data))
         names.append(form.name.data)
         session['name'] = form.name.data
